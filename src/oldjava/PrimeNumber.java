@@ -27,7 +27,7 @@ public class PrimeNumber {
     }
 
     private static boolean isPrime (int num) {
-        if ( num <= 1 ) return false;
+        if ( num < 2 ) return false;
         boolean isPrime = true;
         for ( int i = 2; i <= Math.sqrt(num); i++ ) {
             if ( num % i == 0 ) {
@@ -40,12 +40,9 @@ public class PrimeNumber {
 
     private static int primeCount1 (int start, int end) {
         int totalPrimes = 0;
-
         for ( int i = start; i <= end; i++ ) {
             if ( i < 2 ) continue;
-
             boolean isPrime = true;
-
             for ( int j = 2; j <= Math.sqrt(i); j++ ) {
                 if ( i % j == 0 ) {
                     isPrime = false;
@@ -56,7 +53,6 @@ public class PrimeNumber {
                 totalPrimes++;
             }
         }
-
         return totalPrimes;
     }
 

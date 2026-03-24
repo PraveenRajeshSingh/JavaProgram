@@ -16,44 +16,42 @@ class FrequencyOfElement {
                 .collect(Collectors.toList());
 
         System.out.println("Duplicate Element :" + result);
-// -------------------------------------------------------------
-// Count Frequency of Each Num
+        // -------------------------------------------------------------
+        // Count Frequency of Each Num
         Map< Integer, Long > frequencyOfOccurrenceNum = num.stream()
-                .collect(Collectors.groupingBy(c -> c,
-                        Collectors.counting()));
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+
         System.out.println("Frequency Of (Occurrence) Number :" + frequencyOfOccurrenceNum);
 
         // Grouping Count Frequency of Each Num
         Map< Long, List< Integer > > frequencyOfOccurrenceNumber = num
                 .stream()
-                .collect(Collectors
-                        .groupingBy(Function.identity(),
-                                Collectors.counting()))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet()
                 .stream()
-                .collect(Collectors.groupingBy
-                        (Map.Entry::getValue,
-                                Collectors.mapping
-                                        (Map.Entry::getKey,
-                                                Collectors.toList())));
+                .collect(Collectors.groupingBy(
+                        Map.Entry::getValue, Collectors.mapping(
+                        Map.Entry::getKey, Collectors.toList())));
         System.out.println("Grouping BY Frequency Of Occurrence Number Count :" + frequencyOfOccurrenceNumber);
 
         /* ---------------- String --------------------*/
         String name = "java programming language";
 
         //  Count Words in Sentence
-        long wordsCount=Arrays.stream(name.split(" ")).count();
-        System.out.println("Count Words in Sentence :"+wordsCount);
-// Find Longest Word in Sentence
-        String maxWordLengthInString=Arrays.stream(name.split(" ")).max(Comparator.comparingInt(String::length))
+        long wordsCount = Arrays.stream(name.split(" ")).count();
+        System.out.println("Count Words in Sentence :" + wordsCount);
+
+       // Find Longest Word in Sentence
+        String maxWordLengthInString = Arrays.stream(name.split(" "))
+                .max(Comparator.comparingInt(String::length))
                 .orElse(null);
-        System.out.println("Find Longest Word in Sentence :"+maxWordLengthInString);
+        System.out.println("Find Longest Word in Sentence :" + maxWordLengthInString);
 
         //Remove Duplicate Characters
-        String removeDuplicateChar=name.chars().distinct()
-                .mapToObj(w->String.valueOf((char)w))
-                .collect(Collectors.joining());
-        System.out.println("Remove Duplicate Characters :"+removeDuplicateChar);
+        String removeDuplicateChar = name.chars().distinct()
+                .mapToObj(w -> String.valueOf((char) w))
+                .collect(Collectors.joining(" "));
+        System.out.println("Remove Duplicate Characters :" + removeDuplicateChar);
 
         // Count Total Characters
         long count = name.chars().map(c -> (char) c)
@@ -85,7 +83,8 @@ class FrequencyOfElement {
         //  Find First Non-Repeating Character
         Character results = name.chars().mapToObj(c -> (char) c).filter(m -> m != ' ')
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-                .entrySet().stream()
+                .entrySet()
+                .stream()
                 .filter(f -> f.getValue() == 1)
                 .map(Map.Entry::getKey)
                 .findFirst()
@@ -95,7 +94,7 @@ class FrequencyOfElement {
 
 
         // ------------------------------------------------------
-       //Count Frequency of Each Character
+        //Count Frequency of Each Character
         Map< Character, Long > frequencyOfOccurrenceString = name.toLowerCase()
                 .chars().mapToObj(c -> (char) c)
                 .filter(c -> c != ' ')
@@ -113,8 +112,8 @@ class FrequencyOfElement {
                         Collectors.mapping(Map.Entry::getKey, Collectors.toList())));
         System.out.println("Frequency Of Occurrence String :" + groupingByFrequencyOfOccurrenceString);
 
-        List<String> list=Arrays.asList("Java","Python","c++");
-        Map<String,Integer> map=list.stream().collect(Collectors.toMap(s->s, String::length));
-        System.out.println("Length Of Each Word :"+map);
+        List< String > list = Arrays.asList("Java", "Python", "c++");
+        Map< String, Integer > map = list.stream().collect(Collectors.toMap(s -> s, String::length));
+        System.out.println("Length Of Each Word :" + map);
     }
 }

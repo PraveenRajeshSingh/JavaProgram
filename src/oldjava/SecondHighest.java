@@ -8,7 +8,7 @@ public class SecondHighest {
             if ( num[i] > highest ) {
                 secondHighest = highest;
                 highest = num[i];
-            } else if ( num[i] > secondHighest && num[i]!=highest ) {
+            } else if ( num[i] > secondHighest && num[i] != highest ) {
                 secondHighest = num[i];
             }
         }
