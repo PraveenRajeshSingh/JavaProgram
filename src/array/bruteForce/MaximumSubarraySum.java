@@ -30,7 +30,7 @@ public class MaximumSubarraySum {
         }
         return maxSum;
     }
-
+   // finds the maximum sum of a contiguous subarray. Kadane’s Algorithm
     public static int maxSumArraySum (int[] num) {
         if(num.length == 0) return 0;
         int maxSum = num[0];

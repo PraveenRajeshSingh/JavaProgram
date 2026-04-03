@@ -69,7 +69,6 @@ public class PrimeNumber {
             if ( isPrime ) {
                 System.out.println(i);
             }
-
         }
     }
 

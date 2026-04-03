@@ -60,7 +60,7 @@ public class FindDuplicateCharacters {
     }
 
     public static void main (String[] args) {
-        String words = "java is a programming a language";
+        String words = "java is a programming a java language";
         List< Character > duplicateChar = findDuplicateCharacters(words);
         System.out.println("Duplicate Character are :" + duplicateChar);
 

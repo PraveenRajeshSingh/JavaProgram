@@ -11,9 +11,11 @@ public class BinarySearch {
             if ( arr[mid] == target ) {
                 return mid;
             } else if ( arr[mid] < target ) {
-                return left = mid + 1;
+                left = mid + 1;
+                return left;
             } else {
-                return right = mid - 1;
+                right = mid - 1;
+                return right;
             }
         }
         return -1;
