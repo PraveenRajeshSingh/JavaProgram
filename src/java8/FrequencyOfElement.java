@@ -15,6 +15,7 @@ class FrequencyOfElement {
                 .filter(n -> !dup.add(n))
                 .collect(Collectors.toList());
 
+
         System.out.println("Duplicate Element :" + result);
         // -------------------------------------------------------------
         // Count Frequency of Each Num
