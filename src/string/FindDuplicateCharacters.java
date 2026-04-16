@@ -31,7 +31,7 @@ public class FindDuplicateCharacters {
     // find duplicate words
     private static List< String > findDuplicateWords (String str) {
         Map< String, Integer > map = new HashMap<>();
-        for ( String w : str.split(" ") ) {
+        for ( String w : str.split("\\s+") ) {
             map.put(w, map.getOrDefault(w, 0) + 1);
 
         }
