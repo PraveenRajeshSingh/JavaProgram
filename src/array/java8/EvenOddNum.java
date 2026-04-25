@@ -16,12 +16,12 @@ public class EvenOddNum {
         System.out.println("Even Num :"+evenOdd.get(true));
         System.out.println("Odd Num :"+evenOdd.get(false));
 
+        System.out.println(evenOdd);
 
         Map< String, List< Integer > > result = num.stream()
                 .collect(Collectors.groupingBy(
                         n -> n % 2 == 0 ? "even" : "odd"
                 ));
-        System.out.println(evenOdd);
         System.out.println(result);
 
         Map< String, List< Integer > > evenOdds = num.stream()

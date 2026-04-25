@@ -1,9 +1,13 @@
 package array.bruteForce;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class MaximumSubarraySum {
 
     public static int maximumSubArraySum (int[] arr, int t) {
-        if(arr.length == 0) return 0;
+        if ( arr.length == 0 ) return 0;
         int n = arr.length;
         int maxSum = Integer.MIN_VALUE;
 
@@ -18,7 +22,7 @@ public class MaximumSubarraySum {
     }
 
     private static int maxSumArrayBrute (int[] arr) {
-        if(arr.length == 0) return 0;
+        if ( arr.length == 0 ) return 0;
         int maxSum = Integer.MIN_VALUE;
         for ( int i = 0; i < arr.length; i++ ) {
             int sum = 0;
@@ -30,9 +34,10 @@ public class MaximumSubarraySum {
         }
         return maxSum;
     }
-   // finds the maximum sum of a contiguous subarray. Kadane’s Algorithm
+
+    // finds the maximum sum of a contiguous subarray. Kadane’s Algorithm
     public static int maxSumArraySum (int[] num) {
-        if(num.length == 0) return 0;
+        if ( num.length == 0 ) return 0;
         int maxSum = num[0];
         int currSum = num[0];
         for ( int i = 1; i < num.length; i++ ) {
@@ -41,15 +46,32 @@ public class MaximumSubarraySum {
         }
         return maxSum;
     }
+    // Two Sum Pattern
+
+    public static int[] twoSum (int[] arr, int target) {
+        Map< Integer, Integer > map = new HashMap<>();
+        for ( int i = 0; i < arr.length; i++ ) {
+            int complement = target - arr[i];
+
+            if ( map.containsKey(complement) ) {
+                return new int[]{ map.get(complement), i };
+            }
+            map.put(arr[i], i);
+        }
+        return new int[]{};
+    }
 
     public static void main (String[] args) {
         int[] num = { 2, 4, 3, 6, 4, 6 };
-        int target = 2;
+        int target = 10;
         int result = maximumSubArraySum(num, target);
         int maxSum = maxSumArraySum(num);
         int maxSumBrute = maxSumArrayBrute(num);
         System.out.println("Maximum Sub Array Sum :" + result);
         System.out.println("Max Sub Array Sum :" + maxSum);
         System.out.println("Max Sub Array Sum Brute :" + maxSumBrute);
+
+        int[] twoSum = twoSum(num, target);
+        System.out.println("Two Sum :" + Arrays.toString(twoSum));
     }
 }

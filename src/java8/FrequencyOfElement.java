@@ -15,6 +15,15 @@ class FrequencyOfElement {
                 .filter(n -> !dup.add(n))
                 .collect(Collectors.toList());
 
+        List< Integer > duplicates = num.stream()
+                .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(v -> v.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .toList();
+        System.out.print(" Duplicates :" + duplicates);
+
 
         System.out.println("Duplicate Element :" + result);
         // -------------------------------------------------------------
@@ -32,7 +41,7 @@ class FrequencyOfElement {
                 .stream()
                 .collect(Collectors.groupingBy(
                         Map.Entry::getValue, Collectors.mapping(
-                        Map.Entry::getKey, Collectors.toList())));
+                                Map.Entry::getKey, Collectors.toList())));
         System.out.println("Grouping BY Frequency Of Occurrence Number Count :" + frequencyOfOccurrenceNumber);
 
         /* ---------------- String --------------------*/
@@ -42,7 +51,7 @@ class FrequencyOfElement {
         long wordsCount = Arrays.stream(name.split(" ")).count();
         System.out.println("Count Words in Sentence :" + wordsCount);
 
-       // Find Longest Word in Sentence
+        // Find Longest Word in Sentence
         String maxWordLengthInString = Arrays.stream(name.split(" "))
                 .max(Comparator.comparingInt(String::length))
                 .orElse(null);
@@ -51,7 +60,7 @@ class FrequencyOfElement {
         //Remove Duplicate Characters
         String removeDuplicateChar = name.chars().distinct()
                 .mapToObj(w -> String.valueOf((char) w))
-                .collect(Collectors.joining(" "));
+                .collect(Collectors.joining(""));
         System.out.println("Remove Duplicate Characters :" + removeDuplicateChar);
 
         // Count Total Characters

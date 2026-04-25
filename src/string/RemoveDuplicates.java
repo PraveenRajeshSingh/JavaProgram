@@ -36,6 +36,19 @@ public class RemoveDuplicates {
         return res;
     }
 
+    private static List< Integer > removeDuplicateOptimized (int[] arr) {
+        List< Integer > duplicate = new ArrayList<>();
+        if ( arr.length == 0 ) return duplicate;
+        duplicate.add(arr[0]);
+
+        for ( int j = 1; j < arr.length; j++ ) {
+            if ( arr[j] != arr[j - 1] ) {
+                duplicate.add(arr[j]);
+            }
+        }
+        return duplicate;
+    }
+
     public static void main (String[] args) {
         int[] arr = { 3, 2, 4, 1, 5, 2, 3, 5 };
         List< Integer > ans = removeDuplicates(arr);
@@ -43,5 +56,9 @@ public class RemoveDuplicates {
 
         List< Integer > dup = removeDuplicateBrute(arr);
         System.out.println(dup);
+
+        int[] arr1 = { 1, 1, 2, 2, 3, 4, 4 };
+
+        System.out.println("Duplicate :" + removeDuplicateOptimized(arr1));
     }
 }
