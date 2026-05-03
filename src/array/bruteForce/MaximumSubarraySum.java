@@ -35,7 +35,7 @@ public class MaximumSubarraySum {
         return maxSum;
     }
 
-    // finds the maximum sum of a contiguous subarray. Kadane’s Algorithm
+    // finds the maximum sum of a contiguous sub array. Kadane’s Algorithm
     public static int maxSumArraySum (int[] num) {
         if ( num.length == 0 ) return 0;
         int maxSum = num[0];
@@ -46,8 +46,8 @@ public class MaximumSubarraySum {
         }
         return maxSum;
     }
-    // Two Sum Pattern
 
+    // Two Sum Pattern
     public static int[] twoSum (int[] arr, int target) {
         Map< Integer, Integer > map = new HashMap<>();
         for ( int i = 0; i < arr.length; i++ ) {
