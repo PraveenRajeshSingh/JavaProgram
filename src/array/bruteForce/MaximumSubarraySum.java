@@ -6,24 +6,9 @@ import java.util.Map;
 
 public class MaximumSubarraySum {
 
-    public static int maximumSubArraySum (int[] arr, int t) {
-        if ( arr.length == 0 ) return 0;
-        int n = arr.length;
-        int maxSum = Integer.MIN_VALUE;
-
-        for ( int i = 0; i <= n - t; i++ ) {
-            int sum = 0;
-            for ( int j = i; j < i + t; j++ ) {
-                sum += arr[j];
-            }
-            maxSum = Math.max(maxSum, sum);
-        }
-        return maxSum;
-    }
-
     private static int maxSumArrayBrute (int[] arr) {
         if ( arr.length == 0 ) return 0;
-        int maxSum = Integer.MIN_VALUE;
+        int maxSum = arr[0];
         for ( int i = 0; i < arr.length; i++ ) {
             int sum = 0;
             for ( int j = i; j < arr.length; j++ ) {
@@ -54,7 +39,8 @@ public class MaximumSubarraySum {
             int complement = target - arr[i];
 
             if ( map.containsKey(complement) ) {
-                return new int[]{ map.get(complement), i };
+               // return new int[]{ map.get(complement), i }; //index return
+                return new int[]{arr[i], complement}; // value return Output [4, 6] instead of [1, 3]
             }
             map.put(arr[i], i);
         }
@@ -62,12 +48,11 @@ public class MaximumSubarraySum {
     }
 
     public static void main (String[] args) {
-        int[] num = { 2, 4, 3, 6, 4, 6 };
+        int[] num = { 2, 4, -3, 6, 4, 6 };
         int target = 10;
-        int result = maximumSubArraySum(num, target);
+
         int maxSum = maxSumArraySum(num);
         int maxSumBrute = maxSumArrayBrute(num);
-        System.out.println("Maximum Sub Array Sum :" + result);
         System.out.println("Max Sub Array Sum :" + maxSum);
         System.out.println("Max Sub Array Sum Brute :" + maxSumBrute);
 

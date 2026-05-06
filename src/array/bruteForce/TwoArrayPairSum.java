@@ -40,7 +40,8 @@ public class TwoArrayPairSum {
         for ( int i = 0; i < arr.length; i++ ) {
             int complement = target - arr[i];
             if ( map.containsKey(complement) ) {
-                result.add(new int[]{ map.get(complement), i });
+               // result.add(new int[]{ map.get(complement), i });// return index
+                result .add(new int[]{arr[i],complement}); // return value
             }
             map.put(arr[i], i);
         }

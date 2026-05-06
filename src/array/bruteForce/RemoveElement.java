@@ -15,10 +15,12 @@ public class RemoveElement {
     }
 
     public static void main (String[] args) {
-        int[] num = { 2, 4, 6, 5 };
+        int[] num = { 2, 4, 6, 5, 2 };
         int k = 2;
-        removeElement(num, k);
 
-        System.out.println("Array after removal: " + Arrays.toString(num));
+        int l = removeElement(num, k);
+        int[] result = Arrays.copyOf(num, l);
+        System.out.println("Array after removal: " + Arrays.toString(result));
+
     }
 }

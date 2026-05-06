@@ -3,10 +3,10 @@ package string;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-// Input:  aaawwmmy
-//Output: a3w2m2y
 public class StringCompression {
 
+    // Input: aaawwmmy
+    //Output: a3w2m2y
     private static String stringCompression (String str) {
         Map< Character, Integer > map = new LinkedHashMap<>();
         for ( char ch : str.toCharArray() ) {
@@ -50,5 +50,9 @@ public class StringCompression {
     public static void main (String[] args) {
         String s = "aaawwmmy";
         System.out.println("String compression :" + stringCompression(s.toLowerCase()));
+
+        System.out.println("remove duplicate :"+removeDuplicates(s));
+        System.out.println("Remove Duplicate :"+compressFrequency(s));
+
     }
 }
