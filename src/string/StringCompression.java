@@ -3,6 +3,7 @@ package string;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 public class StringCompression {
 
     // Input: aaawwmmy
@@ -22,25 +23,27 @@ public class StringCompression {
         }
         return sd.toString();
     }
+
     //Input:  aaawwmmy
     //Output: awmy
-    private static String compressFrequency(String str){
-        Map<Character,Integer> map=new HashMap<>();
-        for(char ch:str.toCharArray()){
-            map.put(ch,map.getOrDefault(ch,0)+1);
+    private static String compressFrequency (String str) {
+        Map< Character, Integer > map = new HashMap<>();
+        for ( char ch : str.toCharArray() ) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
 
         }
-        StringBuilder sd=new StringBuilder();
-        for(Map.Entry<Character,Integer> entry:map.entrySet()){
+        StringBuilder sd = new StringBuilder();
+        for ( Map.Entry< Character, Integer > entry : map.entrySet() ) {
             sd.append(entry.getKey());
         }
         return sd.toString();
     }
-    private static String removeDuplicates(String str) {
+
+    private static String removeDuplicates (String str) {
         StringBuilder sb = new StringBuilder();
 
-        for (char ch : str.toCharArray()) {
-            if (sb.indexOf(String.valueOf(ch)) == -1) {
+        for ( char ch : str.toCharArray() ) {
+            if ( sb.indexOf(String.valueOf(ch)) == -1 ) {
                 sb.append(ch);
             }
         }
@@ -51,8 +54,8 @@ public class StringCompression {
         String s = "aaawwmmy";
         System.out.println("String compression :" + stringCompression(s.toLowerCase()));
 
-        System.out.println("remove duplicate :"+removeDuplicates(s));
-        System.out.println("Remove Duplicate :"+compressFrequency(s));
+        System.out.println("remove duplicate :" + removeDuplicates(s));
+        System.out.println("Remove Duplicate :" + compressFrequency(s));
 
     }
 }

@@ -11,11 +11,11 @@ public class FirstRepeatingCharacter {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
         // first way
-        for ( char ch : words.toCharArray() ) {
-            if ( map.get(ch) > 1 ) {
-                return ch;
-            }
-        }
+//        for ( char ch : words.toCharArray() ) {
+//            if ( map.get(ch) > 1 ) {
+//                return ch;
+//            }
+//        }
         // Second way
         for ( Map.Entry< Character, Integer > entry : map.entrySet() ) {
             if ( entry.getValue() > 1 ) {

@@ -20,8 +20,8 @@ public class FindDuplicateCharacters {
         List< Character > duplicate = new ArrayList<>();
         for ( Map.Entry< Character, Integer > entry : map.entrySet() ) {
             if ( entry.getValue() > 1 ) {
-                char ch = entry.getKey();
-                duplicate.add(ch);
+                //char ch = entry.getKey();
+                duplicate.add(entry.getKey());
             }
         }
 

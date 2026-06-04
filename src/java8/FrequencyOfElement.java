@@ -13,7 +13,7 @@ class FrequencyOfElement {
         Set< Integer > dup = new HashSet<>();
         List< Integer > result = num.stream()
                 .filter(n -> !dup.add(n))
-                .collect(Collectors.toList());
+                .toList();
 
         List< Integer > duplicates = num.stream()
                 .collect(Collectors.groupingBy(x -> x, Collectors.counting()))

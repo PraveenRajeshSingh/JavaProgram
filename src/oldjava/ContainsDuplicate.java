@@ -18,12 +18,12 @@ public class ContainsDuplicate {
         return false;
     }
 
-    public static List<Integer> duplicate(int[] num) {
-        Set<Integer> seen = new HashSet<>();
-        List<Integer> duplicates = new ArrayList<>();
+    public static List< Integer > duplicate (int[] num) {
+        Set< Integer > seen = new HashSet<>();
+        List< Integer > duplicates = new ArrayList<>();
 
-        for (int value : num) {
-            if (seen.contains(value)) {
+        for ( int value : num ) {
+            if ( seen.contains(value) ) {
                 duplicates.add(value);
             } else {
                 seen.add(value);
@@ -37,7 +37,7 @@ public class ContainsDuplicate {
         boolean result = containsDuplicate(num);
         System.out.println("Contains Duplicate :" + result);
 
-        List<Integer> duplicateInt = duplicate(num);
+        List< Integer > duplicateInt = duplicate(num);
 
         System.out.println("Duplicates: " + duplicateInt);
 

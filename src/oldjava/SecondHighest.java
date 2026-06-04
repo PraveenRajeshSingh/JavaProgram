@@ -1,9 +1,11 @@
 package oldjava;
 
 public class SecondHighest {
+
     private static int secondHighest (int[] num) {
         int highest = Integer.MIN_VALUE;
         int secondHighest = Integer.MIN_VALUE;
+
         for ( int i = 0; i < num.length; i++ ) {
             if ( num[i] > highest ) {
                 secondHighest = highest;

@@ -1,6 +1,7 @@
 package string;
 
 public class SortCharacters {
+
     private static String sortCharacters (String str) {
         char[] a = str.toCharArray();
         for ( int i = 0; i < str.length(); i++ ) {

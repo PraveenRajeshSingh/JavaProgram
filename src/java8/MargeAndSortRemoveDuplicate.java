@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 
 public class MargeAndSortRemoveDuplicate {
     public static List< Integer > margeSort (List< Integer > arr1, List< Integer > arr2) {
+
         List< Integer > result = Stream.concat(arr1.stream(), arr2.stream())
                 .distinct().sorted().collect(Collectors.toList());
         return result;
