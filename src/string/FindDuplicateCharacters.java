@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class FindDuplicateCharacters {
 
+    // find duplicate character
     private static List< Character > findDuplicateCharacters (String words) {
         Map< Character, Integer > map = new HashMap<>();
         for ( char ch : words.toCharArray() ) {
@@ -47,8 +48,8 @@ public class FindDuplicateCharacters {
     // find duplicate number
     private static List< Integer > findDuplicateInteger (int[] arr) {
         Map< Integer, Integer > map = new HashMap<>();
-        for ( int a : arr ) {
-            map.put(a, map.getOrDefault(a, 0) + 1);
+        for ( int num : arr ) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
         List< Integer > dup = new ArrayList<>();
         for ( Map.Entry< Integer, Integer > entry : map.entrySet() ) {
@@ -60,7 +61,9 @@ public class FindDuplicateCharacters {
     }
 
     public static void main (String[] args) {
+
         String words = "java is a programming a java language";
+
         List< Character > duplicateChar = findDuplicateCharacters(words);
         System.out.println("Duplicate Character are :" + duplicateChar);
 
@@ -68,6 +71,7 @@ public class FindDuplicateCharacters {
         System.out.println("Duplicate Words :" + duplicateWords);
 
         int[] arr = { 2, 4, 1, 2, 4, 3, 5, 3, 6 };
+
         List< Integer > result = findDuplicateInteger(arr);
         System.out.println("Duplicate Integer :" + result);
 

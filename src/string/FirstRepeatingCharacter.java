@@ -26,7 +26,9 @@ public class FirstRepeatingCharacter {
     }
 
     public static void main (String[] args) {
+
         String str = "wetrtf";
+
         Character result = firstRepeatingCharacter(str);
         System.out.println("First Repeating Character :" + result);
     }

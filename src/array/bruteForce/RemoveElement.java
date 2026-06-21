@@ -33,18 +33,19 @@ public class RemoveElement {
         int[] num = { 2, 4, 6, 5, 2 };
         int k = 2;
 
-        int[] num1 = num.clone();
-        int length = removeElement(num1, k);
-        int[] result = Arrays.copyOf(num1, length);
-        System.out.println("Two pointer Array after removal: " + Arrays.toString(result));
+        int length = removeElement(num, k);
+        System.out.print("Result Array: ");
+        for ( int i = 0; i < length; i++ ) {
+            System.out.print(num[i] + " ");
+        }
 
-        int[] num2 = num.clone();
+        System.out.println();
         // Streams
-        int[] remove = Arrays.stream(num2).filter(n -> n != 2).toArray();
+        int[] remove = Arrays.stream(num).filter(n -> n != 2).toArray();
         System.out.println("Array after remove Stream:" + Arrays.toString(remove));
 
-        int[] num3 = num.clone();
-        List< Integer > removeElement = removeElements(num3, k);
+
+        List< Integer > removeElement = removeElements(num, k);
         System.out.println("Remove Element :" + removeElement);
     }
 }

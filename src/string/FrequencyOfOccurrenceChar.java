@@ -7,19 +7,22 @@ import java.util.Map;
 public class FrequencyOfOccurrenceChar {
 
     private static void frequencyOfOccurrenceChar (String str) {
+
         Map< Character, Integer > map = new HashMap<>();
         for ( char ch : str.toCharArray() ) {
             if ( ch == ' ' )
                 continue;
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
+
         for ( Map.Entry< Character, Integer > entry : map.entrySet() ) {
-            System.out.print(entry.getKey() + " -> " + entry.getValue());
+            System.out.print(entry.getKey() + " -> " + entry.getValue() + " \n");
         }
     }
     /*
     3. merge() Internal Flow
-Check if key exists If NOT:
+Check if key exists
+If NOT:
 Insert given value
 If YES:
 Call lambda (oldVal, newVal)
@@ -28,6 +31,7 @@ If null → remove key
      */
 
     public static Map< Character, Integer > frequencyOfOccurrenceUsingMerge (String str) {
+
         Map< Character, Integer > duplicate = new HashMap<>();
         for ( char ch : str.toCharArray() ) {
             if ( ch == ' ' ) continue;
@@ -48,14 +52,17 @@ Lambda → returns 2
 Update → {a=2}
      */
     private static Map< Character, Integer > frequencyOfOccurrenceUsingCompute (String str) {
+
         Map< Character, Integer > duplicate = new HashMap<>();
         for ( char ch : str.toCharArray() ) {
-            duplicate.compute(ch, (k, v) -> (k == null) ? 1 : v + 1);
+            if(ch == ' ') continue;
+            duplicate.compute(ch, (k, v) -> (v == null) ? 1 : v + 1);
         }
         return duplicate;
     }
 
     private static Map< Character, Integer > frequencyOfOccurrenceChars (String str) {
+
         Map< Character, Integer > map = new LinkedHashMap<>();
         for ( char ch : str.toCharArray() ) {
             if ( ch == ' ' ) continue;
@@ -68,14 +75,17 @@ Update → {a=2}
         String str = "java is a programming language";
         frequencyOfOccurrenceChar(str);
 
+        System.out.println("\n -------------");
         // using getOrDefault()
         Map< Character, Integer > result = frequencyOfOccurrenceChars(str);
         System.out.print(result);
 
-        // using merge()
+        System.out.println("\n ------------");
+        // Even Better: Use merge()
         Map< Character, Integer > merge = frequencyOfOccurrenceUsingMerge(str);
         System.out.print("Merge :" + merge);
 
+        System.out.println("\n -----------");
         // using compute()
         Map<Character,Integer> compute=frequencyOfOccurrenceUsingCompute(str);
         System.out.print("Compute :"+compute);

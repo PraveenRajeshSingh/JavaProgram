@@ -14,9 +14,16 @@ public class RotateArray {
         }
     }
 
+
     public static void rotate (int[] arr, int k) {
+        if (arr == null || arr.length <= 1)
+            return;
+
         int n = arr.length;
         k = k % n; // k= 3%7 =3
+
+        if (k == 0)
+            return;
 
         // Reverse Whole Array
         reverse(arr, 0, n - 1); //reverse(arr,0,6) [7, 6, 5, 4, 3, 2, 1]

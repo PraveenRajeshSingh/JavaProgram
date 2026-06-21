@@ -14,6 +14,8 @@ class FrequencyOfElement {
         List< Integer > result = num.stream()
                 .filter(n -> !dup.add(n))
                 .toList();
+        System.out.println("Remove Duplicate Element -> :"+dup);
+        System.out.println("Duplicate Element :" + result);
 
         List< Integer > duplicates = num.stream()
                 .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
@@ -22,10 +24,9 @@ class FrequencyOfElement {
                 .filter(v -> v.getValue() > 1)
                 .map(Map.Entry::getKey)
                 .toList();
+
         System.out.print(" Duplicates :" + duplicates);
 
-
-        System.out.println("Duplicate Element :" + result);
         // -------------------------------------------------------------
         // Count Frequency of Each Num
         Map< Integer, Long > frequencyOfOccurrenceNum = num.stream()

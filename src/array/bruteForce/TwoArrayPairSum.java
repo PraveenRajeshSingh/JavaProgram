@@ -20,25 +20,42 @@ public class TwoArrayPairSum {
     }
 
     // Optimized using HashMap
-    public static List< List< Integer > > twoSumPairOptimized (int[] arr, int target) {
-        Map< Integer, Integer > map = new HashMap<>();
-        List< List< Integer > > result = new ArrayList<>();
+    public static List< List< Integer > > twoSumPair (int[] arr, int target) {
+        Set< Integer > seen = new HashSet<>();
+        List< List< Integer > > pair = new ArrayList<>();
 
-        for ( int i = 0; i < arr.length; i++ ) {
-            int completed = target - arr[i];
-            if ( map.containsKey(completed) ) {
+        for ( int num : arr ) {
+            int complement = target - num;
+            if ( seen.contains(complement) ) {
 
-                result.add(Arrays.asList(completed, arr[i]));
+                pair.add(Arrays.asList(complement, num));
             }
 
-            map.put(arr[i], i);
+            seen.add(num);
         }
-        return result;
+        return pair;
+    }
+
+    // Unique Pair Only
+    public static List< List< Integer > > twoSumUniquePair (int[] arr, int target) {
+        Set< Integer > seen = new HashSet<>();
+        Set< List< Integer > > uniquePair = new HashSet<>();
+        for ( int num : arr ) {
+            int complement = target - num;
+            if ( seen.contains(complement) ) {
+                int first = Math.min(complement, num);
+                int second = Math.max(complement, num);
+                uniquePair.add(Arrays.asList(first, second));
+            }
+
+            seen.add(num);
+        }
+        return new ArrayList<>(uniquePair);
     }
 
 
     public static void main (String[] args) {
-        int[] arr = { 2, 3, 5, -3, 1, 6, -5, 8 };
+        int[] arr = { 2, 3, 5, -3, 1, 6, 1, -5, 8 };
         int target = 7;
 
         List< List< Integer > > result = twoSum(arr, target);
@@ -49,10 +66,16 @@ public class TwoArrayPairSum {
         }
 
         System.out.println("Two Sum Pair Optimized : ");
-        List< List< Integer > > twoSum = twoSumPairOptimized(arr, target);
-        for ( List< Integer > n : twoSum ) {
+        List< List< Integer > > twoSum = twoSumPair(arr, target);
+        for ( List< Integer > pair : twoSum ) {
 
-            System.out.println(n);
+            System.out.println(pair);
+        }
+
+        System.out.println("Unique Pair Only :");
+        List< List< Integer > > pairs = twoSumUniquePair(arr, target);
+        for ( List< Integer > pair : pairs ) {
+            System.out.println(pair);
         }
     }
 }
